@@ -14,7 +14,7 @@ public class VideogamesController {
 
     String dia;
     String mes;
-    String año;
+    String any;
 
     /**
      * Aqui tenemos el constructor de la clase
@@ -146,8 +146,8 @@ public class VideogamesController {
         System.out.println("Escribe el mes:");
         mes = scanner.nextLine();
         System.out.println("Escribe el año:");
-        año = scanner.nextLine();
-        String sql = "select * from videojuegos where extract(day from fecha)="+ dia + " && extract(month from fecha)="+ mes + " && extract(year from fecha)="+ año +";";
+        any = scanner.nextLine();
+        String sql = "select * from videojuegos where extract(day from fecha)="+ dia + " && extract(month from fecha)="+ mes + " && extract(year from fecha)="+ any +";";
 
         try{
             Statement st = connection.createStatement();
