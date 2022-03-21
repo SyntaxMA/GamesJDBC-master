@@ -41,13 +41,13 @@ public class VideogamesController {
             String imagen = scanner.nextLine();
 
             System.out.println("Inserta una fecha (dia/mes/año):");
-            Date fecha = Date.valueOf(scanner.nextLine());
+            String fecha = scanner.nextLine();
 
             System.out.println("Escribe una de estas plataformas:");
             System.out.println("PS5");
             System.out.println("PS4");
             System.out.println("SWITCH");
-            System.out.println("XBOX ONE");
+            System.out.println("Xbox One");
             System.out.println("PC");
             String plataforma = scanner.nextLine();
 
@@ -78,7 +78,7 @@ public class VideogamesController {
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, titulo);
             pst.setString(2, imagen);
-            pst.setDate(3, Date.valueOf(String.valueOf(fecha)));
+            pst.setString(3, fecha);
             pst.setString(4, plataforma);
             pst.setString(5, descripcion);
             pst.setString(6, genero);
@@ -227,9 +227,8 @@ public class VideogamesController {
         System.out.println("Deportes");
         System.out.println("Camiones");
 
-
-        String gener = scanner.nextLine().toUpperCase(Locale.ROOT);
-        String sql = "SELECT * FROM videojuegos where genero='" + gener +"'";
+        String gener = scanner.nextLine();
+        String sql = "select * from videojuegos where genero ='" + gener + "'";
 
         try{
             Statement st = connection.createStatement();
